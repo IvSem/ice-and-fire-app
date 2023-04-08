@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ice-and-fire-app/static/css/main.98fdf58d.css",
+    "main.js": "/ice-and-fire-app/static/js/main.bbad0728.js",
+    "static/media/error.jpeg": "/ice-and-fire-app/static/media/error.1654c3c77b19fd9f5e29.jpeg",
+    "static/media/got.jpeg": "/ice-and-fire-app/static/media/got.7783d0b428949a09e45f.jpeg",
+    "index.html": "/ice-and-fire-app/index.html",
+    "main.98fdf58d.css.map": "/ice-and-fire-app/static/css/main.98fdf58d.css.map",
+    "main.bbad0728.js.map": "/ice-and-fire-app/static/js/main.bbad0728.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.98fdf58d.css",
+    "static/js/main.bbad0728.js"
+  ]
+}

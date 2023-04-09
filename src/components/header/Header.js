@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'reactstrap';
+import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const HeaderBlock = styled.div`
@@ -31,17 +31,52 @@ export const Header = () => {
 	return (
 		<HeaderBlock>
 			<HeaderTitle>
-				<NavLink>Game of Thrones DB</NavLink>
+				<Link to="/">Game of Thrones DB</Link>
 			</HeaderTitle>
 			<HeaderLinks>
 				<li>
-					<NavLink>Characters</NavLink>
+					<NavLink
+						to="/characters"
+						style={({ isActive, isPending }) => {
+							return {
+								fontSize: '20px',
+								fontWeight: isActive ? 'bold' : '',
+								color: isActive ? 'pink' : 'white',
+							};
+						}}
+					>
+						Characters
+					</NavLink>
 				</li>
 				<li>
-					<NavLink>Houses</NavLink>
+					<NavLink
+						to="/houses"
+						style={({ isActive }) => {
+							return {
+								fontSize: '20px',
+								fontWeight: isActive ? 'bold' : '',
+								color: isActive ? 'pink' : 'white',
+							};
+						}}
+					>
+						Houses
+					</NavLink>
+					{/*<NavLink>Houses</NavLink>*/}
 				</li>
 				<li>
-					<NavLink>Books</NavLink>
+					<NavLink
+						to="/books"
+						style={({ isActive, isPending }) => {
+							return {
+								fontSize: '20px',
+								fontWeight: isActive ? 'bold' : '',
+								color: isActive ? 'pink' : 'white',
+							};
+						}}
+					>
+						Books
+					</NavLink>
+					{/*<NavLink>Books</NavLink>*/}
 				</li>
 			</HeaderLinks>
 		</HeaderBlock>

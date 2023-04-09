@@ -29,6 +29,8 @@ export class CharDetails extends Component {
 		}
 	}
 
+	componentDidCatch() {}
+
 	render() {
 		if (!this.state.char) {
 			return (

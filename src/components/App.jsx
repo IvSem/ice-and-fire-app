@@ -1,56 +1,31 @@
-import { Button, Col, Container, Row } from 'reactstrap';
-import { CharDetails, Header, RandomChar, ItemList } from 'components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Component } from 'react';
+import { ErrorMessage } from './errorMessage/errorMessage';
+import { Routes, Route } from 'react-router-dom';
+import { Layout, ErrorPage, CharacterPage } from 'pages';
 
 export class App extends Component {
 	state = {
-		showRandomChar: false,
-		selectedChar: null,
+		error: false,
 	};
-
-	handleShowRandom = () => {
-		this.setState(prev => ({ showRandomChar: !prev.showRandomChar }));
-	};
-
-	handleCharSelected = id => {
-		this.setState({ selectedChar: id });
-	};
+	componentDidCatch() {
+		this.setState({ error: true });
+	}
 
 	render() {
-		return (
-			<Container>
-				<Container>
-					<Header />
-				</Container>
-				<Container>
-					<Row>
-						<Col lg={{ size: 8, offset: 0 }}>
-							{this.state.showRandomChar && <RandomChar />}
-						</Col>
-					</Row>
+		if (this.state.error) {
+			return <ErrorMessage />;
+		}
 
-					<Button
-						color="primary"
-						size="lg"
-						className="mb-5"
-						onClick={this.handleShowRandom}
-					>
-						Click Random
-					</Button>
-					<Row>
-						<Col md="6">
-							<ItemList
-								handleCharSelected={this.handleCharSelected}
-								charId={this.state.selectedChar}
-							/>
-						</Col>
-						<Col md="6">
-							<CharDetails charId={this.state.selectedChar} />
-						</Col>
-					</Row>
-				</Container>
-			</Container>
+		return (
+			<>
+				<Routes>
+					<Route path="/" element={<Layout />}>
+						<Route path="/characters" element={<CharacterPage />} />
+						<Route path="*" element={<ErrorPage />} />
+					</Route>
+				</Routes>
+			</>
 		);
 	}
 }

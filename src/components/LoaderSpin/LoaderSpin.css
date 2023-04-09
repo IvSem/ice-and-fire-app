@@ -41,10 +41,11 @@
 .loadingio-spinner-cube-ysfejk1u8vn {
 	width: 206px;
 	height: 206px;
-	display: inline-block;
+	display: block;
 	overflow: hidden;
 	background: rgba(255, 255, 255, 0.154);
 	border-radius: 30px;
+	margin: 0 auto;
 }
 .ldio-wtbg7mgavd {
 	width: 100%;

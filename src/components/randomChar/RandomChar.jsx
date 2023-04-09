@@ -42,12 +42,22 @@ export class RandomChar extends Component {
 
 	componentDidMount() {
 		this.updateChar();
+		console.log('mount');
+	}
+	componentDidUpdate() {
+		console.log('update');
+	}
+	componentWillUnmount() {
+		console.log('unmount');
+		//clearInterval(this.timerId);
 	}
 
-	updateChar = () => {
-		this.setState(({ isLoading }) => ({ isLoading: !isLoading }));
+	updateChar = async () => {
 		const id = Math.floor(Math.random() * 500) + 1;
-		this.gotService.getCharacter(id).then(this.onLoaded).catch(this.onError);
+		await this.gotService
+			.getCharacter(id)
+			.then(this.onLoaded)
+			.catch(this.onError);
 	};
 
 	render() {

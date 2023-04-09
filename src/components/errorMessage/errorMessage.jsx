@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import img from './error.jpeg';
 
-const ErrorMess = styled.span`
+const ErrorMess = styled.div`
 	font-size: 30px;
 	color: #ff0000;
 	display: block;

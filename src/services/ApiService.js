@@ -13,6 +13,7 @@ export default class ApiService extends Component {
 
 	getAllCharacters = async () => {
 		const result = await this.getResource('/characters?page=5&pageSize=10');
+
 		return result.map(this._transformCharacter);
 	};
 
@@ -34,14 +35,20 @@ export default class ApiService extends Component {
 	getBook = id => {
 		return this.getResource(`/books/${id}/`);
 	};
+	extractNumbers = char => {
+		const digits = char.match(/\d+$/);
+		return digits ? digits[0] : '';
+	};
 
-	_transformCharacter = char => {
+	_transformCharacter = ({ name, gender, born, died, culture, url }) => {
+		const err = 'no data :(';
 		return {
-			name: char.name,
-			gender: char.gender,
-			born: char.born,
-			died: char.died,
-			culture: char.culture,
+			id: this.extractNumbers(url) || err,
+			name: name || err,
+			gender: gender || err,
+			born: born || err,
+			died: died || err,
+			culture: culture || err,
 		};
 	};
 

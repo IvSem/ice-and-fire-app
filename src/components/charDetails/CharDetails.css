@@ -15,5 +15,6 @@
 	text-align: center;
 	font-size: 26px;
 }
-.list-group {
+.select-error {
+	color: yellowgreen;
 }

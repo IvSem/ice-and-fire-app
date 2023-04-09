@@ -1,4 +1,3 @@
-import { ErrorMessage } from 'components/errorMessage/errorMessage';
 import React, { Component } from 'react';
 import ApiService from 'services/ApiService';
 import './CharDetails.css';

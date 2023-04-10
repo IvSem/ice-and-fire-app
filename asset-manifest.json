@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/ice-and-fire-app/static/css/main.f4c1f18c.css",
-    "main.js": "/ice-and-fire-app/static/js/main.723a0c38.js",
+    "main.css": "/ice-and-fire-app/static/css/main.cf53724e.css",
+    "main.js": "/ice-and-fire-app/static/js/main.3aa5f16f.js",
     "static/media/error.jpeg": "/ice-and-fire-app/static/media/error.1654c3c77b19fd9f5e29.jpeg",
     "static/media/got.jpeg": "/ice-and-fire-app/static/media/got.7783d0b428949a09e45f.jpeg",
     "index.html": "/ice-and-fire-app/index.html",
-    "main.f4c1f18c.css.map": "/ice-and-fire-app/static/css/main.f4c1f18c.css.map",
-    "main.723a0c38.js.map": "/ice-and-fire-app/static/js/main.723a0c38.js.map"
+    "main.cf53724e.css.map": "/ice-and-fire-app/static/css/main.cf53724e.css.map",
+    "main.3aa5f16f.js.map": "/ice-and-fire-app/static/js/main.3aa5f16f.js.map"
   },
   "entrypoints": [
-    "static/css/main.f4c1f18c.css",
-    "static/js/main.723a0c38.js"
+    "static/css/main.cf53724e.css",
+    "static/js/main.3aa5f16f.js"
   ]
 }

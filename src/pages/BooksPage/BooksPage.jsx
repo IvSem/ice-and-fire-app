@@ -1,15 +1,18 @@
+import {
+	Field,
+	ItemDetails,
+	ItemList,
+	RowBlock,
+	ErrorMessage,
+} from 'components';
+
 import React, { Component } from 'react';
 import { Badge } from 'reactstrap';
-import { Field, ItemDetails, ItemList, RowBlock } from 'components';
-import { ErrorMessage } from 'components/errorMessage/errorMessage';
 import ApiService from 'services/ApiService';
 
-export class CharacterPage extends Component {
+export class BooksPage extends Component {
 	gotService = new ApiService();
-	state = {
-		selectedItem: null,
-		error: false,
-	};
+	state = { selectedItem: null, error: false };
 
 	componentDidCatch() {
 		this.setState({ error: true });
@@ -28,11 +31,11 @@ export class CharacterPage extends Component {
 			<ItemList
 				handleItemSelected={this.handleItemSelected}
 				itemId={this.state.selectedItem}
-				getData={this.gotService.getAllCharacters}
+				getData={this.gotService.getAllBooks}
 				renderItem={item => (
 					<>
 						<span>{item.name}</span>
-						<Badge color="danger" pill>
+						<Badge color="info" pill>
 							New
 						</Badge>
 					</>
@@ -43,13 +46,13 @@ export class CharacterPage extends Component {
 		const itemDetails = (
 			<ItemDetails
 				itemId={this.state.selectedItem}
-				getData={this.gotService.getCharacter}
-				label="Please select a Character"
+				getData={this.gotService.getBook}
+				label="Please select a Book"
 			>
-				<Field field="gender" label="Gender"></Field>
-				<Field field="born" label="Born"></Field>
-				<Field field="died" label="Died"></Field>
-				<Field field="culture" label="Culture"></Field>
+				<Field field="publisher" label="Publisher"></Field>
+				<Field field="released" label="Released"></Field>
+				<Field field="numberOfPages" label="Number-Of-Pages"></Field>
+				<Field field="authors" label="Authors"></Field>
 			</ItemDetails>
 		);
 

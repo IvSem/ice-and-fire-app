@@ -5,6 +5,8 @@
 	font-weight: 700;
 	border: none;
 	border-bottom: 1px solid rgb(220, 209, 209);
+	display: flex;
+	justify-content: space-between;
 }
 .item-list .list-group-item:hover {
 	background-color: rgba(70, 150, 219, 0.375);

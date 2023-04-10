@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './ItemList.css';
 import styled from 'styled-components';
-import ApiService from 'services/ApiService';
 import { LoaderSpin } from 'components/LoaderSpin/LoaderSpin';
 import { ListGroupItem } from 'reactstrap';
 
@@ -17,41 +16,41 @@ const List = styled.ul`
 //`;
 
 export class ItemList extends Component {
-	gotService = new ApiService();
-
 	state = {
-		charList: null,
+		itemList: null,
 	};
 
 	componentDidMount() {
-		this.gotService
-			.getAllCharacters()
-			.then(charList => this.setState({ charList }));
+		const { getData } = this.props;
+		getData().then(itemList => this.setState({ itemList }));
 	}
 
 	renderItems = array => {
-		return array.map(({ name, id }) => {
+		return array.map(item => {
+			const { id } = item;
+			const label = this.props.renderItem(item);
+
 			return (
 				<ListGroupItem
-					active={this.props.charId === id}
+					active={this.props.itemId === id}
 					key={id}
 					className="list-group-item"
-					onClick={() => this.props.handleCharSelected(id)}
+					onClick={() => this.props.handleItemSelected(id)}
 				>
-					{name}
+					{label}
 				</ListGroupItem>
 			);
 		});
 	};
 
 	render() {
-		const { charList } = this.state;
+		const { itemList } = this.state;
 
-		if (!charList) {
+		if (!itemList) {
 			return <LoaderSpin />;
 		}
 
-		const items = this.renderItems(charList);
+		const items = this.renderItems(itemList);
 
 		return <List className="item-list list-group bg-light">{items}</List>;
 	}
